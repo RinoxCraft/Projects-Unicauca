@@ -5,11 +5,17 @@ This is a CRUD with three (3) relational tables, designed with user registration
 -----------------------
 
 1. copy the repository to your computer:
-https: https://github.com/RinoxCraft/Projects-Unicauca.git
 
-GITHUB CLI: gh repo clone RinoxCraft/Projects-Unicauca
+
+https: https://github.com/RinoxCraft/Projects-Unicauca.git 
+
+
+git clone --branch CrudphpMyADMIN git@github.com:RinoxCraft/Projects-Unicauca.git
 
 or can be downloaded from the .zip
+
+2. Access the "Crud phpMyADMIN" branch and download the branch
+
 
 # TO BE ABLE TO INSTALL THE DATABASE
 ------------------------
