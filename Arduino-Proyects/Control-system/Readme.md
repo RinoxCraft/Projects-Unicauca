@@ -1,4 +1,4 @@
-# ----> ARDUINO CON MAQUINA DE ESTADOS <-------------
+# --------> ARDUINO CON MAQUINA DE ESTADOS <--------
 
 This project is developed in the area of ​​Telematics Technology of the subject Digital Systems Laboratory-TTM-I, where it is based on the implementation of Arduino Mega 
 as a basic prototype of a greenhouse.
