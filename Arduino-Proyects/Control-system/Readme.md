@@ -8,7 +8,7 @@ as a basic prototype of a greenhouse.
 - BLOCKING
 - SHOW_VALUES.
 
-## The usage elements are based on:
+## >> The usage elements are based on:
 - Arduino Mega
 - DHT22
 - PhotoResistor
@@ -18,14 +18,14 @@ as a basic prototype of a greenhouse.
 - Keypad (4*3)
 - Male-Male and Male-Female Wiring.
 
-### The usage code is generalized in the following image
+### >> The usage code is generalized in the following image
 ## ![imagen](https://github.com/RinoxCraft/Projects-Unicauca/assets/67917424/3c9055e8-3b7a-4ec5-ba58-6a9f6e17ba62)
 
-### The physical implementation is as follows:
+### >> The physical implementation is as follows:
 The program used for the simulation is:
 https://wokwi.com/ 
 ## ![imagen](https://github.com/RinoxCraft/Projects-Unicauca/assets/67917424/7c3cd0e0-5b0b-447f-a29b-03bce1752739)
-### Code: 
+### >> Code: 
 The code can be obtained by downloading the "Arduino Security Complete" file:
 
 
