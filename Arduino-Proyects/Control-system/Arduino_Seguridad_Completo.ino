@@ -47,6 +47,7 @@ enum Estado {
   INICIO,
   VALIDACION_CONTRASENA,
   BLOQUEADO,
+  ALARMATEMPERATURA,
   MOSTRAR_VALORES  // Agregado el estado para mostrar los valores
 };
 
@@ -69,11 +70,20 @@ AsyncTask LightTask(1500, true, showLightValue);
 void funct_led(void);
 AsyncTask LedTask(650, true, funct_led);
 
+void funct_ledAlarm(void);
+AsyncTask LedTaskAlarm(650, true, funct_ledAlarm);
+
 void funct_time(void);
 AsyncTask TimeTask(10000, false, funct_time);
 
-void funt_ledAlarm(void);
-AsyncTask LedAlarm(350, true, funt_ledAlarm);
+void funct_timeAlarm(void);
+AsyncTask TimeTaskAlarm(3000, false, funct_timeAlarm);
+
+void funt_ledAlarmBloq(void);
+AsyncTask LedAlarmBloq(800, true, funt_ledAlarmBloq);
+
+void funt_ledAlarmTemp(void);
+AsyncTask LedAlarmTemp(500, true, funt_ledAlarmTemp);
 
 int ledState = LOW;
 
@@ -82,31 +92,29 @@ void funct_led(void) {
   digitalWrite(redPin, ledState);
 }
 
-void funt_ledAlarm(void) {
+void funct_ledAlarm(void) {
+  ledState = !ledState;
+  digitalWrite(bluePin, ledState);
+}
+
+void funt_ledAlarmBloq(void) {
   unsigned long startTime = millis();
   while (millis() - startTime < 6000) {
-    // Rojo
-    analogWrite(redPin, 255);
-    analogWrite(greenPin, 0);
-    analogWrite(bluePin, 0);
-    delay(1000);
-
-    // Verde
-    analogWrite(redPin, 0);
-    analogWrite(greenPin, 255);
-    analogWrite(bluePin, 0);
-    delay(1000);
-
     // Azul
-    analogWrite(redPin, 0);
-    analogWrite(greenPin, 0);
+    analogWrite(redPin, 255);
+  }
+  // Apagar el LED RGB
+  analogWrite(redPin, 0);
+}
+
+void funt_ledAlarmTemp(void) {
+  unsigned long startTime = millis();
+  while (millis() - startTime < 3000) {
+    // Azul
     analogWrite(bluePin, 255);
-    delay(1000);
   }
 
   // Apagar el LED RGB
-  analogWrite(redPin, 0);
-  analogWrite(greenPin, 0);
   analogWrite(bluePin, 0);
 }
 
@@ -119,12 +127,25 @@ void funct_time(void) {
   failedAttempts = 0;
   // Verificar el estado anterior al entrar en el estado bloqueado
   if (estadoAnterior == MOSTRAR_VALORES) {
-    LedAlarm.Start();
+    LedAlarmBloq.Start();
     estadoActual = MOSTRAR_VALORES;  // Restablecer el estado anterior
 
   } else {
     // Si venimos de otro estado, mantenemos el bloqueo indefinidamente
     estadoActual = INICIO;  // Restablecer el estado anterior
+  }
+}
+
+void funct_timeAlarm(void) {
+  LedTaskAlarm.Stop();
+  analogWrite(bluePin, ledState);
+  analogWrite(greenPin, 0);
+  analogWrite(bluePin, 0);
+  lcd.clear();
+  // Verificar el estado anterior al entrar en el estado bloqueado
+  if (estadoAnterior == MOSTRAR_VALORES) {
+    LedAlarmTemp.Start();
+    estadoActual = MOSTRAR_VALORES;  // Restablecer el estado anterior
   }
 }
 
@@ -139,11 +160,11 @@ void setup() {
   pinMode(bluePin, OUTPUT);
 
   // Encender solo el color azul al inicio
-  analogWrite(redPin, 0);
-  analogWrite(greenPin, 0);
+  analogWrite(redPin, 255);
+  analogWrite(greenPin, 255);
   analogWrite(bluePin, 255);
   startTime = millis();  // Inicializa el tiempo de inicio
-  delay(3000);           // Mantener encendido durante 3 segundos
+  delay(2000);           // Mantener encendido durante 3 segundos
 
   // Apagar todos los LED RGB
   analogWrite(redPin, 0);
@@ -157,16 +178,20 @@ void setup() {
 
 void loop() {
   LedTask.Update();
+  LedAlarmBloq.Update();
+  LedAlarmTemp.Update();
   TimeTask.Update();
+  TimeTaskAlarm.Update();
   TemperatureTask.Update();
   HumidityTask.Update();
   LightTask.Update();
-  LedAlarm.Update();
+
 
   char key = keypad.getKey();
 
   switch (estadoActual) {
     case INICIO:
+      analogWrite(redPin, 0);
       if (idxPassword == 0 && flagInicio == 0) {
         lcd.clear();
         lcd.setCursor(1, 0);
@@ -190,6 +215,7 @@ void loop() {
 
     case VALIDACION_CONTRASENA:
       if (strcmp(inputPassword, password) == 0) {
+        analogWrite(greenPin, 255);
         lcd.clear();
         lcd.setCursor(4, 0);
         lcd.print("Correct");
@@ -198,6 +224,7 @@ void loop() {
         estadoActual = MOSTRAR_VALORES;  // Cambiado a MOSTRAR_VALORES
         estadoAnterior = VALIDACION_CONTRASENA;
       } else {
+        analogWrite(redPin, 255);
         lcd.clear();
         lcd.setCursor(4, 0);
         lcd.print("Incorrect");
@@ -220,18 +247,18 @@ void loop() {
 
     case BLOQUEADO:
       if (!TimeTask.IsActive()) {
-        lcd.clear();
-        lcd.setCursor(4, 0);
-        lcd.print("Blocked");
-        lcd.setCursor(4, 2);
-        lcd.print("System");
         // Verificar el estado anterior al entrar en el estado bloqueado
         if (estadoAnterior == MOSTRAR_VALORES) {
           TimeTask.Start();
-          LedAlarm.Start();
+          LedAlarmBloq.Start();
           TemperatureTask.Stop();
           HumidityTask.Stop();
           LightTask.Stop();
+          lcd.clear();
+          lcd.setCursor(5, 0);
+          lcd.print("Warning");
+          lcd.setCursor(3, 2);
+          lcd.print("L <40 T >30 ");
         } else {
           // Si venimos de otro estado, mantenemos el bloqueo indefinidamente
           LedTask.Start();
@@ -239,48 +266,78 @@ void loop() {
           TemperatureTask.Stop();
           HumidityTask.Stop();
           LightTask.Stop();
+          lcd.clear();
+          lcd.setCursor(4, 0);
+          lcd.print("Blocked");
+          lcd.setCursor(4, 2);
+          lcd.print("System");
         }
       }
       break;
 
-    case MOSTRAR_VALORES:
-      LedAlarm.Stop();
-      // Lógica para mostrar valores
-      if (!TemperatureTask.IsActive()) {
-        lcd.clear();
-        TemperatureTask.Start();
-        HumidityTask.Start();
-        LightTask.Start();
+    case ALARMATEMPERATURA:
+      if (!TimeTaskAlarm.IsActive()) {
+        if (estadoAnterior == MOSTRAR_VALORES) {
+          TimeTaskAlarm.Start();
+          LedAlarmTemp.Start();
+          TemperatureTask.Stop();
+          HumidityTask.Stop();
+          LightTask.Stop();
+          lcd.clear();
+          lcd.setCursor(5, 0);
+          lcd.print("ALARM");
+          lcd.setCursor(3, 2);
+          lcd.print(" Temp >32 ");
+        }
+
+        break;
+
+        case MOSTRAR_VALORES:
+          LedAlarmBloq.Stop();
+          LedAlarmTemp.Stop();
+          analogWrite(greenPin, 0);
+          // Lógica para mostrar valores
+          if (!TemperatureTask.IsActive()) {
+            lcd.clear();
+            TemperatureTask.Start();
+            HumidityTask.Start();
+            LightTask.Start();
+          }
+          if (analogRead(lightSensorPin) <= 40 && dht.readTemperature() > 30) {  // Si los valores de luz y temperatura cumplen con las condiciones
+            lcd.clear();
+            estadoActual = BLOQUEADO;
+            estadoAnterior = MOSTRAR_VALORES;
+          }
+          if (dht.readTemperature() > 32) {  // si los valores de temperatura cuymplen las condiciones
+            lcd.clear();
+            estadoActual = ALARMATEMPERATURA;
+            estadoAnterior = MOSTRAR_VALORES;
+          }
+          break;
       }
-      if (analogRead(lightSensorPin) <= 40 && dht.readTemperature() < 32) {  // Si los valores de luz y temperatura cumplen con las condiciones
-        lcd.clear();
-        estadoActual = BLOQUEADO;
-        estadoAnterior = MOSTRAR_VALORES;
-      }
-      break;
   }
 }
 
-// Definición de las funciones para mostrar los valores
-void showTemperatureValue(void) {
-  float temperature = dht.readTemperature();
-  lcd.setCursor(8, 0);
-  lcd.print("T: ");
-  lcd.print(temperature);
-  lcd.print("C");
-}
+  // Definición de las funciones para mostrar los valores
+  void showTemperatureValue(void) {
+    float temperature = dht.readTemperature();
+    lcd.setCursor(8, 0);
+    lcd.print("T: ");
+    lcd.print(temperature);
+    lcd.print("C");
+  }
 
-void showHumidityValue(void) {
-  float humidity = dht.readHumidity();
-  lcd.setCursor(3, 1);
-  lcd.print("H: ");
-  lcd.print(humidity);
-  lcd.print("%");
-}
+  void showHumidityValue(void) {
+    float humidity = dht.readHumidity();
+    lcd.setCursor(3, 1);
+    lcd.print("H: ");
+    lcd.print(humidity);
+    lcd.print("%");
+  }
 
-void showLightValue(void) {
-  int lightValue = analogRead(lightSensorPin);
-  lcd.setCursor(0, 0);
-  lcd.print("L: ");
-  lcd.print(lightValue);
-}
+  void showLightValue(void) {
+    int lightValue = analogRead(lightSensorPin);
+    lcd.setCursor(0, 0);
+    lcd.print("L: ");
+    lcd.print(lightValue);
+  }
