@@ -19,7 +19,7 @@ as a basic prototype of a greenhouse.
 - Male-Male and Male-Female Wiring.
 
 ### >> The usage code is generalized in the following image
-## ![imagen](https://github.com/RinoxCraft/Projects-Unicauca/assets/67917424/3c9055e8-3b7a-4ec5-ba58-6a9f6e17ba62)
+## ![imagen](https://github.com/RinoxCraft/Projects-Unicauca/assets/67917424/6063dce1-84f2-4f17-b6fd-d7e57caf8296)
 
 ### >> The physical implementation is as follows:
 The program used for the simulation is:
