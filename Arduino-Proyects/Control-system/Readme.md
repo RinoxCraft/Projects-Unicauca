@@ -20,6 +20,14 @@ as a basic prototype of a greenhouse.
 
 ### >> The usage code is generalized in the following image
 ## ![imagen](https://github.com/RinoxCraft/Projects-Unicauca/assets/67917424/6063dce1-84f2-4f17-b6fd-d7e57caf8296)
+# Code explanation
+When starting the code, all variables and tasks are initialized, of which their states are:
+START
+MONITORING
+BLOCKING
+ALARM
+
+When starting the machine, the purple LED turns on for 2 seconds, therefore it asks us for a password that defaults to "1234" having two variables. If the password entered is incorrect, a message will appear that says "INCORRECT PASSWORD" illuminating the red LED, when If the incorrect password is entered three times, it goes to a LOCKED state where a "BLOCKED SYSTEM" message appears with a red LED for 6 seconds. Once those seconds have passed, it will return us to the START where it will ask us for the password. Now, if the password is correct, we will sends to a MONITORING state, where it will show us Light, Temperature and Humidity data, when we are in the monitoring system there will be two variables, when the temperature is greater than 32 degrees, it will send us to an ALARM state where a message "ALARM >32" is projected. for 3 seconds, but if the system continues to detect that the temperature is still higher than 32 degrees, the system will not go back to the monitoring state until the temperature stabilizes. Once stabilized, we will go back to the monitoring state with the aforementioned values. Now if in another variable the Temperature is greater than 30 degrees and the light is also less than 40, it will go to a blocking state with a message "Warning T > 30 L < 40" as well as the previous method if the values ​​remain like this of highs the system will not pass the monitoring until the values ​​stabilize, if they stabilize it will send us to the monitoring state again.
 
 ### >> The physical implementation is as follows:
 The program used for the simulation is:
