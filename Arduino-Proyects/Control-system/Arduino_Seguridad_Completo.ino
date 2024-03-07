@@ -99,7 +99,7 @@ void funct_ledAlarm(void) {
 
 void funt_ledAlarmBloq(void) {
   unsigned long startTime = millis();
-  while (millis() - startTime < 6000) {
+  while (millis() - startTime < 300) {
     // Azul
     analogWrite(redPin, 255);
   }
@@ -256,7 +256,7 @@ void loop() {
           LightTask.Stop();
           lcd.clear();
           lcd.setCursor(5, 0);
-          lcd.print("Warning");
+          lcd.print("Bloqueado");
           lcd.setCursor(3, 2);
           lcd.print("L <40 T >30 ");
         } else {
@@ -303,12 +303,12 @@ void loop() {
             HumidityTask.Start();
             LightTask.Start();
           }
-          if (analogRead(lightSensorPin) <= 40 && dht.readTemperature() > 30) {  // Si los valores de luz y temperatura cumplen con las condiciones
+          if (analogRead(lightSensorPin) <= 40 && dht.readTemperature() >= 27) {  // Si los valores de luz y temperatura cumplen con las condiciones
             lcd.clear();
             estadoActual = BLOQUEADO;
             estadoAnterior = MOSTRAR_VALORES;
           }
-          if (dht.readTemperature() > 32) {  // si los valores de temperatura cuymplen las condiciones
+          if (dht.readTemperature() > 28) {  // si los valores de temperatura cuymplen las condiciones
             lcd.clear();
             estadoActual = ALARMATEMPERATURA;
             estadoAnterior = MOSTRAR_VALORES;
