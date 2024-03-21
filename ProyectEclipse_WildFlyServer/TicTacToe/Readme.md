@@ -5,13 +5,13 @@
 ### Now follow the following guide to create the file system and server in Eclipse
 ### --> https://github.com/RinoxCraft/Projects-Unicauca/blob/f95cc2d3f663e0f61644f5d6c35695b2f428650d/ProyectEclipse_WildFlyServer/TicTacToe/Files/MicroproyectoTicTacToeEclipse.pdf 
 
-## Files  Import
-* index.jsp
-* web.xml
-* game.jsp
-## Pakages Import Languaje English 
-* game --> 
-* img
-## Packages Import Languaje Spai
-* game --> 
-* img 
+### Files  Import
+## * index.jsp
+## * web.xml
+## * game.jsp
+### Pakages Import Languaje English 
+## * game --> https://github.com/RinoxCraft/Projects-Unicauca/tree/d47df79c8ed99664663881dcbcd01813fffe22bf/ProyectEclipse_WildFlyServer/TicTacToe/game  
+## * img
+### Packages Import Languaje Spai
+## * game --> 
+## * img 
