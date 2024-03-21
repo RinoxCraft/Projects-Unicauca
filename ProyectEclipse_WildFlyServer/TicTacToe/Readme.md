@@ -9,6 +9,9 @@
 * index.jsp
 * web.xml
 * game.jsp
-## Pakages Import
-* game
+## Pakages Import Languaje English 
+* game --> 
 * img
+## Packages Import Languaje Spai
+* game --> 
+* img 
