@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control del Sistema</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flot/0.8.3/jquery.flot.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flot/0.8.3/jquery.flot.time.min.js"></script>
+    <style>
+        /* Estilos CSS aquí */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(239, 239, 239);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgb(111, 204, 95);
+            border: 1px solid #000000;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #000000;
+        }
+
+        .sensor-data {
+            margin-bottom: 20px;
+        }
+
+        .sensor-data p {
+            margin: 10px 0;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .sensor-name {
+            flex: 1;
+            text-align: left;
+            color: #000000;
+        }
+
+        .value {
+            text-align: center;
+            flex: 1;
+            color: #000000;
+            font-weight: bold;
+        }
+
+        .graph-container {
+            margin-top: 20px;
+            max-width: 800px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .graph {
+            width: calc(50% - 10px);
+            height: 300px;
+            border: 1px solid #000000;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        #error-message {
+            color: red;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        #connection-status {
+            color: green;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .tooltip {
+            position: absolute;
+            display: none;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Control del Sistema</h1>
+        <div class="sensor-data">
+            <p><span class="sensor-name">Temperatura:</span><span class="value" id="temp">-- °C</span></p>
+            <p><span class="sensor-name">Humedad:</span><span class="value" id="hum">-- %</span></p>
+            <p><span class="sensor-name">Luz:</span><span class="value" id="light">-- %</span></p>
+        </div>
+    </div>
+
+    <div class="graph-container">
+        <div id="tempChart" class="graph"></div>
+        <div id="humChart" class="graph"></div>
+        <div id="lightChart" class="graph"></div>
+    </div>
+
+    <div id="error-message"></div>
+    <div id="connection-status"></div>
+    <div class="tooltip"></div>
+
+    <script>
+        var temperatureData = [];
+        var humidityData = [];
+        var lightData = [];
+        var plotOptions = {
+            series: {
+                lines: {
+                    show: true,
+                    lineWidth: 2,
+                    shadowSize: 0
+                },
+                points: {
+                    show: true
+                }
+            },
+            grid: {
+                borderWidth: 0,
+                hoverable: true,
+                backgroundColor: null,
+                color: "#000000"
+            },
+            xaxis: {
+                show: false,
+                mode: 'time'
+            },
+            yaxis: {
+                color: "#000000"
+            }
+        };
+
+        function trimData(dataArray, maxLength) {
+            if (dataArray.length > maxLength) {
+                dataArray.splice(0, dataArray.length - maxLength);
+            }
+        }
+
+        function updateCharts() {
+            trimData(temperatureData, 10);
+            trimData(humidityData, 10);
+            trimData(lightData, 10);
+
+            $.plot("#tempChart", [{
+                data: temperatureData,
+                label: "Temperatura (°C)",
+                color: "#FF0000"
+            }], plotOptions);
+
+            $.plot("#humChart", [{
+                data: humidityData,
+                label: "Humedad (%)",
+                color: "#0000FF"
+            }], plotOptions);
+
+            $.plot("#lightChart", [{
+                data: lightData,
+                label: "Luz (%)",
+                color: "#FFFF00"
+            }], plotOptions);
+        }
+
+        function showTooltip(x, y, contents) {
+            $('.tooltip').html(contents)
+                .css({
+                    top: y + 5,
+                    left: x + 5
+                })
+                .fadeIn();
+        }
+
+        updateCharts();
+        fetchData();
+        setInterval(fetchData, 5000);
+
+        function fetchData() {
+            fetch('http://192.168.0.103/datos') // Reemplaza '192.168.1.2' con la dirección IP de tu ESP32
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error en la Lectura de Datos');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log(data);
+                    document.getElementById('error-message').textContent = '';
+                    document.getElementById('connection-status').textContent = 'Conectado';
+                    document.getElementById('connection-status').style.color = 'green';
+                    updateValues(data.temperatura, data.humedad, data.intensidadLuz);
+                    temperatureData.push([new Date().getTime(), data.temperatura]);
+                    humidityData.push([new Date().getTime(), data.humedad]);
+                    lightData.push([new Date().getTime(), data.intensidadLuz]);
+                    updateCharts();
+                })
+                .catch(error => {
+                    console.error('Error al obtener los datos:', error);
+                    document.getElementById('error-message').textContent = 'Error al cargar datos';
+                    document.getElementById('connection-status').textContent = 'Red no disponible';
+                    document.getElementById('connection-status').style.color = 'red';
+                    updateValues(null, null, null);
+                });
+        }
+
+        function updateValues(temperature, humidity, light) {
+            if (temperature !== undefined && humidity !== undefined && light !== undefined) {
+                document.getElementById('temp').textContent = temperature.toFixed(2) + ' °C';
+                document.getElementById('hum').textContent = humidity.toFixed(2) + ' %';
+                document.getElementById('light').textContent = light.toFixed(2) + ' %';
+                document.getElementById('error-message').textContent = '';
+            } else {
+                document.getElementById('temp').textContent = '-- °C';
+                document.getElementById('hum').textContent = '-- %';
+                document.getElementById('light').textContent = '-- %';
+                document.getElementById('error-message').textContent = 'Error al recibir datos';
+            }
+        }
+
+        $('#tempChart, #humChart, #lightChart').on('plothover', function (event, pos, item) {
+            if (item) {
+                var x = item.datapoint[0],
+                    y = item.datapoint[1];
+
+                showTooltip(item.pageX, item.pageY, item.series.label + ": " + y.toFixed(2));
+            } else {
+                $('.tooltip').fadeOut();
+            }
+        });
+
+    </script>
+</body>
+
+</html>
