@@ -12,6 +12,3 @@
 ### Pakages Import Languaje English 
  * game --> https://github.com/RinoxCraft/Projects-Unicauca/tree/d47df79c8ed99664663881dcbcd01813fffe22bf/ProyectEclipse_WildFlyServer/TicTacToe/game  
  * img
-### Packages Import Languaje Spai
- * game --> 
- * img 
