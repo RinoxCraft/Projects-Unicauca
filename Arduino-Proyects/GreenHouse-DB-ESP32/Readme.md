@@ -3,8 +3,8 @@
 ## Tasks to be done :robot:
 - [x] Download Arduino Environment
 - [x] Environment Configuration for ESP32
-- [ ] Implementation of WiFi Service with ESP32
-- [ ] Reading DHT22 and Photocell Sensors
+- [x] Implementation of WiFi Service with ESP32
+- [x] Reading DHT22 and Photocell Sensors
 - [ ] Database Creation and Configuration
 - [ ] HTML modification for sensor reading
 - [ ] HTML Modification for CRUD with Database
@@ -18,9 +18,50 @@
    - Once downloaded we can go to select our board, the board we are going to use is `DOIT ESP32 DEVKIT V1`
 > [!NOTE] 
 > We use this type of board since it is the most common one that can be worked on, but it can be managed with another type of board. The important thing is that it can compile to ESP code.
-3. Implementation WiFi Service
+
 > [!WARNING]
 > We are going to make our code in layers, in other words the .ino (main) file will be as clean as possible, so we will implement the .h and .cpp sections if necessary
-* We start with the creation of a .h file from which it will take the name `WiFi_config.h`
-  - [WiFi_config.h file]()
+
+3. Implementation WiFi Service
+* We start with the creation of a .h file from which it will take the name `WiFi_config.h`.
+  
+                                            + `WiFi_config.h file`:
+![image](https://github.com/RinoxCraft/Projects-Unicauca/assets/67917424/aab5f199-bdef-4f7c-84ed-e14be636e934).
+
+                                             + `InvernaderoDB.ino`:
+![image](https://github.com/RinoxCraft/Projects-Unicauca/assets/67917424/33e6a9f6-03a3-46f6-85f4-6f8d9c2090c3).
+
+                                                   + `Testing`:
+![image](https://github.com/RinoxCraft/Projects-Unicauca/assets/67917424/a3353319-07e5-4e5c-8b03-f037bc2bc48f).
+
+> [!NOTE]
+> The parameters in 'Your WiFi Network' and 'Your WiFi Password' are replaced with the parameters of your personal or business network.
+
+> [!TIP]
+> If you need to put error messages or connection messages, it can be implemented
+
+4. Implementation and Reading of DHT22 and Photocell Data
+* We start with the creation of a file called `Sensores.h`, where we are going to implement the reading of DHT22 and Photocell sensors
+
+                                                   + `Sensores.h`:
+  ![image](https://github.com/RinoxCraft/Projects-Unicauca/assets/67917424/91731889-b025-4d82-bb62-16449959d7d3)
+
+
+  > [!NOTE]
+  > The pins of the DHT22 and the Photocell can be defined as you want, but you must be careful which pin it should be to project data
+
+                                               + `Invernadero.ino`:
+  ![image](https://github.com/RinoxCraft/Projects-Unicauca/assets/67917424/b075e1db-85ae-4b0c-b878-9c5776bd38d9)
+
+
+                                                  + `testing`:
+  ![image](https://github.com/RinoxCraft/Projects-Unicauca/assets/67917424/3888e171-fd59-4e62-b411-65ed5b0702f7)
+
+  5. Database Creation and Configuration
+
+  
+
+
+
+
   
