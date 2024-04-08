@@ -58,6 +58,7 @@
   ![image](https://github.com/RinoxCraft/Projects-Unicauca/assets/67917424/3888e171-fd59-4e62-b411-65ed5b0702f7)
 
   5. Database Creation and Configuration
+     ### To continue with the configuration of our project we recommend visiting our .doc file: [Greenhouse Project with Database and HTML](https://docs.google.com/document/d/1E_aDSJ7xsLImMLE22vqVSqqBkkm7MOsCMc3BbSUyEO4/edit?usp=sharing)
 
   
 
