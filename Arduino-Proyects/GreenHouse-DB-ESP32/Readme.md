@@ -19,3 +19,8 @@
 > [!NOTE] 
 > We use this type of board since it is the most common one that can be worked on, but it can be managed with another type of board. The important thing is that it can compile to ESP code.
 3. Implementation WiFi Service
+> [!WARNING]
+> We are going to make our code in layers, in other words the .ino (main) file will be as clean as possible, so we will implement the .h and .cpp sections if necessary
+* We start with the creation of a .h file from which it will take the name `WiFi_config.h`
+  - [WiFi_config.h file]()
+  
