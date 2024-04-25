@@ -48,21 +48,24 @@ The first thing we are going to do would be the Hardware configuration of the co
 > This configuration of connections may vary, both due to the type of ESP used and the type of sensor inputs, for this reason it is better to consult the DataSheet so that both analog and digital connections do not damage the project or short-circuit the project.
 
 ## _Sorftware Configuration_
+>[!IMPORTANT]
+>For our ESP system to work, it is necessary to import these preferences in the Arduino IDE path.
+- http://arduino.esp8266.com/stable/package_esp8266com_index.json, https://dl.espressif.com/dl/package_esp32_index.json
+
 To configure the Software we will use Arduino IDE in which we will program our components so that for the moment it does the following:
 1. Connection to the Wifi Network
-2. Sensor data collection
-3. OLED projection of the data
-
+3. Sensor data collection
+4. OLED projection of the data
 > [!NOTE]
 > With this we verify that we will be able to receive data from the sensors and project them on an Oled screen, in order to later increase the other components and make changes to the Software
 ### _Configuration Files_
-1. [invernadero_DB.ino](https://github.com/RinoxCraft/Projects-Unicauca/blob/893541f74cee7bb84a49d34595e57810610102a3/Arduino-Proyects/GreenHouse-DataBase/invernadero_DB.ino)
-2. [wifi_config.h]()
-3. [wifi_config.cpp]()
-4. [sensores.h]()
-5. [sensores.cpp]()
-6. [oled_display.h]()
-7. [oled_display.cpp]()
+1. [invernadero_DB.ino](https://github.com/RinoxCraft/Projects-Unicauca/blob/e8c7efa60e7ab383742886479653b3628bbd8f25/Arduino-Proyects/GreenHouse-DataBase/Arduino%20IDE%20Files/Invernadero_DB.ino)
+2. [wifi_config.h](https://github.com/RinoxCraft/Projects-Unicauca/blob/9b75d8906a1ee6bf3aeb0e856dc602c0ccd65110/Arduino-Proyects/GreenHouse-DataBase/Arduino%20IDE%20Files/wifi_config.h)
+3. [wifi_config.cpp](https://github.com/RinoxCraft/Projects-Unicauca/blob/9b75d8906a1ee6bf3aeb0e856dc602c0ccd65110/Arduino-Proyects/GreenHouse-DataBase/Arduino%20IDE%20Files/wifi_config.cpp)
+4. [sensores.h](https://github.com/RinoxCraft/Projects-Unicauca/blob/9b75d8906a1ee6bf3aeb0e856dc602c0ccd65110/Arduino-Proyects/GreenHouse-DataBase/Arduino%20IDE%20Files/sensores.h)
+5. [sensores.cpp](https://github.com/RinoxCraft/Projects-Unicauca/blob/9b75d8906a1ee6bf3aeb0e856dc602c0ccd65110/Arduino-Proyects/GreenHouse-DataBase/Arduino%20IDE%20Files/sensores.cpp)
+6. [oled_display.h](https://github.com/RinoxCraft/Projects-Unicauca/blob/9b75d8906a1ee6bf3aeb0e856dc602c0ccd65110/Arduino-Proyects/GreenHouse-DataBase/Arduino%20IDE%20Files/oled_display.h)
+7. [oled_display.cpp](https://github.com/RinoxCraft/Projects-Unicauca/blob/9b75d8906a1ee6bf3aeb0e856dc602c0ccd65110/Arduino-Proyects/GreenHouse-DataBase/Arduino%20IDE%20Files/oled_display.cpp)
 > [!WARNING]
 > These files with an example of configuration, you must remember to change the SSID and Password in "wifi_config.cpp", according to your network connection, likewise if a pin change is made other than that established in the code it is advisable to change it
 
