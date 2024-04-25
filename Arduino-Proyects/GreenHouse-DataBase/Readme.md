@@ -1,4 +1,4 @@
-#  :eye_speech_bubble: **_Greenhouse_ Project with _Database Connection_** :green_heart: :atom:
+ **_Greenhouse_ Project with _Database Connection_** :green_heart: :atom:
 
 In this new project, a greenhouse system connected to a database will be developed, where we can create a _CRUD_:man_technologist: system to make queries on _real-time_:hourglass_flowing_sand: data and events projected in the greenhouse, there will be several interfaces and possible incorporation of a website to visualize a _CRUD_:technologist: system better and faster
 
@@ -31,6 +31,22 @@ In this new project, a greenhouse system connected to a database will be develop
 - [X] [XAMPP](https://www.apachefriends.org/es/index.html)
 > [!IMPORTANT]
 > The _XAMPP_ program will be used for the database that we are going to use, which is _PHPMyAdmin_.
+
+# **Project Start** 👩‍🔬 💻
+## _Hardware Configuration_
+The first thing we are going to do would be the Hardware configuration of the components, according to the datasheet that we can acquire through the web for the connection of the components on the breadboard. First we will use the basics:
+1. Breadboard [DataSheet](https://agelectronica.lat/pdfs/textos/P/PROTO-BOARD.PDF)
+2. ESP-32 [DataSheet](https://www.circuitstate.com/pinouts/doit-esp32-devkit-v1-wifi-development-board-pinout-diagram-and-reference/)
+3. DHT22 Sensor [DataSheet](https://www.sparkfun.com/datasheets/Sensors/Temperature/DHT22.pdf)
+4. Light Sensor [DataSheet](https://components101.com/sites/default/files/component_datasheet/LDR%20Datasheet.pdf)
+5. Oled Screen [DataSheet](https://cdn.velleman.eu/downloads/29/infosheets/sh1106_datasheet.pdf)
+> [!NOTE]
+> In this it will be projected that at the time of starting the processes we will generate an IP address that we will later use to access a web page that we will create, and in the same way project data from the sensors on the OLED.
+### _Connections_
+  ![Connections](https://github.com/RinoxCraft/Projects-Unicauca/assets/67917424/cb91414b-0226-4970-83e0-5bef1b6aa881)
+> [!IMPORTANT]
+> This configuration of connections may vary, both due to the type of ESP used and the type of sensor inputs, for this reason it is better to consult the DataSheet so that both analog and digital connections do not damage the project or short-circuit the project.
+
 
 
 
