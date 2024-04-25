@@ -59,13 +59,13 @@ To configure the Software we will use Arduino IDE in which we will program our c
 > [!NOTE]
 > With this we verify that we will be able to receive data from the sensors and project them on an Oled screen, in order to later increase the other components and make changes to the Software
 ### _Configuration Files_
-1. [invernadero_DB.ino][File](https://github.com/RinoxCraft/Projects-Unicauca/blob/e8c7efa60e7ab383742886479653b3628bbd8f25/Arduino-Proyects/GreenHouse-DataBase/Arduino%20IDE%20Files/Invernadero_DB.ino)
-2. [wifi_config.h][File](https://github.com/RinoxCraft/Projects-Unicauca/blob/9b75d8906a1ee6bf3aeb0e856dc602c0ccd65110/Arduino-Proyects/GreenHouse-DataBase/Arduino%20IDE%20Files/wifi_config.h)
-3. [wifi_config.cpp][File](https://github.com/RinoxCraft/Projects-Unicauca/blob/9b75d8906a1ee6bf3aeb0e856dc602c0ccd65110/Arduino-Proyects/GreenHouse-DataBase/Arduino%20IDE%20Files/wifi_config.cpp)
-4. [sensores.h][File](https://github.com/RinoxCraft/Projects-Unicauca/blob/9b75d8906a1ee6bf3aeb0e856dc602c0ccd65110/Arduino-Proyects/GreenHouse-DataBase/Arduino%20IDE%20Files/sensores.h)
-5. [sensores.cpp][File](https://github.com/RinoxCraft/Projects-Unicauca/blob/9b75d8906a1ee6bf3aeb0e856dc602c0ccd65110/Arduino-Proyects/GreenHouse-DataBase/Arduino%20IDE%20Files/sensores.cpp)
-6. [oled_display.h][File](https://github.com/RinoxCraft/Projects-Unicauca/blob/9b75d8906a1ee6bf3aeb0e856dc602c0ccd65110/Arduino-Proyects/GreenHouse-DataBase/Arduino%20IDE%20Files/oled_display.h)
-7. [oled_display.cpp][File](https://github.com/RinoxCraft/Projects-Unicauca/blob/9b75d8906a1ee6bf3aeb0e856dc602c0ccd65110/Arduino-Proyects/GreenHouse-DataBase/Arduino%20IDE%20Files/oled_display.cpp)
+1. **invernadero_DB.ino** [File](https://github.com/RinoxCraft/Projects-Unicauca/blob/e8c7efa60e7ab383742886479653b3628bbd8f25/Arduino-Proyects/GreenHouse-DataBase/Arduino%20IDE%20Files/Invernadero_DB.ino)
+2. **wifi_config.h** [File](https://github.com/RinoxCraft/Projects-Unicauca/blob/9b75d8906a1ee6bf3aeb0e856dc602c0ccd65110/Arduino-Proyects/GreenHouse-DataBase/Arduino%20IDE%20Files/wifi_config.h)
+3. **wifi_config.cpp** [File](https://github.com/RinoxCraft/Projects-Unicauca/blob/9b75d8906a1ee6bf3aeb0e856dc602c0ccd65110/Arduino-Proyects/GreenHouse-DataBase/Arduino%20IDE%20Files/wifi_config.cpp)
+4. **sensores.h** [File](https://github.com/RinoxCraft/Projects-Unicauca/blob/9b75d8906a1ee6bf3aeb0e856dc602c0ccd65110/Arduino-Proyects/GreenHouse-DataBase/Arduino%20IDE%20Files/sensores.h)
+5. **sensores.cpp** [File](https://github.com/RinoxCraft/Projects-Unicauca/blob/9b75d8906a1ee6bf3aeb0e856dc602c0ccd65110/Arduino-Proyects/GreenHouse-DataBase/Arduino%20IDE%20Files/sensores.cpp)
+6. **oled_display.h** [File](https://github.com/RinoxCraft/Projects-Unicauca/blob/9b75d8906a1ee6bf3aeb0e856dc602c0ccd65110/Arduino-Proyects/GreenHouse-DataBase/Arduino%20IDE%20Files/oled_display.h)
+7. **oled_display.cpp** [File](https://github.com/RinoxCraft/Projects-Unicauca/blob/9b75d8906a1ee6bf3aeb0e856dc602c0ccd65110/Arduino-Proyects/GreenHouse-DataBase/Arduino%20IDE%20Files/oled_display.cpp)
 > [!WARNING]
 > These files with an example of configuration, you must remember to change the SSID and Password in "wifi_config.cpp", according to your network connection, likewise if a pin change is made other than that established in the code it is advisable to change it
 
