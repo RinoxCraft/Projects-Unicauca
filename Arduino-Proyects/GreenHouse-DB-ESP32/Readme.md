@@ -7,6 +7,7 @@
 - [x] Reading DHT22 and Photocell Sensors
 - [x] Database Creation
 - [ ] Database Configuration in ESP-32
+- [ ] Extras added
 - [ ] HTML modification for sensor reading
 - [ ] HTML Modification for CRUD with Database
 - [ ] Testing
