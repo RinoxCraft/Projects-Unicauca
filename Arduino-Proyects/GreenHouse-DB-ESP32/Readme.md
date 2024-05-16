@@ -70,11 +70,11 @@
 
 ## FILES
 > [!NOTE]
-> You will find the downloadable files for the Arduino configuration, remember to modify what is necessary for your use
+> You will find the downloadable files for the Arduino configuration, remember to modify what is necessary for your use.
 > [!NOTE]
-> You will find the downloadable files for the configuration of the PHP page, remember to modify what is necessary for your use
+> You will find the downloadable files for the configuration of the PHP page, remember to modify what is necessary for your use.
 > [!NOTE]
-> Database file used (PHPMyAdmin)
+> Database file used (PHPMyAdmin).
  
 
   
