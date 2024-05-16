@@ -64,6 +64,15 @@
 
 ## 6. Database Configuration 
 ### To continue with the configuration of the ESP-32 for connection with MYSQL, we recommend visiting our .doc file: [Greenhouse Project with Database and HTML V2](https://docs.google.com/document/d/15Av9mOf5KoJdoDAUe40zs3s7e7orfK0BSMMuHV0Ers0/edit?usp=sharing)
+
+## 7. Php page Careation
+### To continue with the configuration of the php page for connection with WYSQL, we recommend visiting our .doc file: [PHP PAGE CREATION](https://docs.google.com/document/d/1HfKc8gn0Ez2fvbKJX8Q61wi4ZsRbIRd4ang0red0dWE/edit?usp=sharing)
+
+## FILES
+> [!NOTE]
+> ask
+> [!NOTE]
+> sfk
  
 
   
