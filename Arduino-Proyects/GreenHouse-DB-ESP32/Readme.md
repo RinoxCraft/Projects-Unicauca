@@ -8,8 +8,8 @@
 - [x] Database Creation
 - [ ] Database Configuration in ESP-32
 - [ ] Extras added
-- [ ] HTML modification for sensor reading
-- [ ] HTML Modification for CRUD with Database
+- [ ] PHP modification for sensor reading
+- [ ] PHP Modification for CRUD with Database
 - [ ] Testing
 
 # ***PROJECT START*** :space_invader:
@@ -62,7 +62,7 @@
 ## 5. Database Creation
 ### To continue with the configuration of our project we recommend visiting our .doc file: [Greenhouse Project with Database and HTML](https://docs.google.com/document/d/1E_aDSJ7xsLImMLE22vqVSqqBkkm7MOsCMc3BbSUyEO4/edit?usp=sharing)
 
-## 6. Database Configuration
+## 6. Database Configuration 
 ### To continue with the configuration of the ESP-32 for connection with MYSQL, we recommend visiting our .doc file: [Greenhouse Project with Database and HTML V2](https://docs.google.com/document/d/15Av9mOf5KoJdoDAUe40zs3s7e7orfK0BSMMuHV0Ers0/edit?usp=sharing)
  
 
