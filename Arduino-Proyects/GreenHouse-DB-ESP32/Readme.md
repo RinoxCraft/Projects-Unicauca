@@ -70,9 +70,11 @@
 
 ## FILES
 > [!NOTE]
-> ask
->[!NOTE]
-> sfk
+> You will find the downloadable files for the Arduino configuration, remember to modify what is necessary for your use
+> [!NOTE]
+> You will find the downloadable files for the configuration of the PHP page, remember to modify what is necessary for your use
+> [!NOTE]
+> Database file used (PHPMyAdmin)
  
 
   
