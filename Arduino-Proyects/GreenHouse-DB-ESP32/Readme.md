@@ -75,6 +75,8 @@ Now we will create a PHP page with association to HTML, to obtain a visualizatio
 6. [Conectión](https://github.com/RinoxCraft/Projects-Unicauca/blob/fa9cd19d01ec7ab66fc4f1441d4556c80dba735e/Arduino-Proyects/GreenHouse-DB-ESP32/FilesPHP/conexion.php)
 7. [Functions](https://github.com/RinoxCraft/Projects-Unicauca/blob/fa9cd19d01ec7ab66fc4f1441d4556c80dba735e/Arduino-Proyects/GreenHouse-DB-ESP32/FilesPHP/funciones.js)
 8. [Styles.css](https://github.com/RinoxCraft/Projects-Unicauca/blob/fa9cd19d01ec7ab66fc4f1441d4556c80dba735e/Arduino-Proyects/GreenHouse-DB-ESP32/FilesPHP/styles.css)
+9. [recuperarcontrasena]()
+10. [restablecer]()
    
 > [!NOTE]
 > To create our PHP page we will use a programming system called Visual Studio Code → https://code.visualstudio.com/
