@@ -1,0 +1,107 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #2c3e50; /* Fondo azul oscuro */
+    color: #fff; /* Texto blanco */
+}
+
+.container {
+    width: 350px;
+    margin: 50px auto;
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparente */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    position: relative;
+}
+
+.dark-mode-switch {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.dark-mode-switch img {
+    width: 60px; /* Cambia el tamaño aquí */
+    height: 60px; /* Cambia el tamaño aquí */
+    border-radius: 50%; /* Hace que la imagen sea redonda */
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #007bff;
+}
+
+p {
+    text-align: center;
+    margin-top: 20px;
+}
+
+a.neon {
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s;
+}
+
+a.neon:hover {
+    color: #ff0;
+}
+
+a.neon::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: #ff0;
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out 0s;
+}
+
+a.neon:hover::before {
+    visibility: visible;
+    transform: scaleX(1);
+}
+
+.dark-mode {
+    background-color: #000; /* Fondo negro */
+    color: #fff; /* Texto blanco */
+}
