@@ -66,15 +66,24 @@
 ### To continue with the configuration of the ESP-32 for connection with MYSQL, we recommend visiting our .doc file: [Greenhouse Project with Database and HTML V2](https://docs.google.com/document/d/15Av9mOf5KoJdoDAUe40zs3s7e7orfK0BSMMuHV0Ers0/edit?usp=sharing)
 
 ## 7. Php page Careation
-### To continue with the configuration of the php page for connection with WYSQL, we recommend visiting our .doc file: [PHP PAGE CREATION](https://docs.google.com/document/d/1HfKc8gn0Ez2fvbKJX8Q61wi4ZsRbIRd4ang0red0dWE/edit?usp=sharing)
+Now we will create a PHP page with association to HTML, to obtain a visualization of the data beyond a reading in MySQL. For them we will rely on these previously created files, you can download them and use them if you want
+1. [log in](https://github.com/RinoxCraft/Projects-Unicauca/blob/fa9cd19d01ec7ab66fc4f1441d4556c80dba735e/Arduino-Proyects/GreenHouse-DB-ESP32/FilesPHP/login.php)
+2. [sign in](https://github.com/RinoxCraft/Projects-Unicauca/blob/fa9cd19d01ec7ab66fc4f1441d4556c80dba735e/Arduino-Proyects/GreenHouse-DB-ESP32/FilesPHP/registro.php)
+3. [Measured Data]()
+4. [Events]()
+5. [Graphics]()
+6. [Conectión](https://github.com/RinoxCraft/Projects-Unicauca/blob/fa9cd19d01ec7ab66fc4f1441d4556c80dba735e/Arduino-Proyects/GreenHouse-DB-ESP32/FilesPHP/conexion.php)
+7. [Functions](https://github.com/RinoxCraft/Projects-Unicauca/blob/fa9cd19d01ec7ab66fc4f1441d4556c80dba735e/Arduino-Proyects/GreenHouse-DB-ESP32/FilesPHP/funciones.js)
+8. [Styles.css](https://github.com/RinoxCraft/Projects-Unicauca/blob/fa9cd19d01ec7ab66fc4f1441d4556c80dba735e/Arduino-Proyects/GreenHouse-DB-ESP32/FilesPHP/styles.css)
+   
+> [!NOTE]
+> To create our PHP page we will use a programming system called Visual Studio Code → https://code.visualstudio.com/
+
+> [!IMPORTANT]
+> You can modify the structure of our page as you want, and the taste and effects that you decide to add or remove.
 
 ## FILES
-> [!NOTE]
-> You will find the downloadable files for the Arduino configuration, remember to modify what is necessary for your use.
-> [!NOTE]
-> You will find the downloadable files for the configuration of the PHP page, remember to modify what is necessary for your use.
-> [!NOTE]
-> Database file used (PHPMyAdmin).
+
  
 
   
