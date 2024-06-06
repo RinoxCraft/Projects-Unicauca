@@ -82,6 +82,7 @@ campos:
 > Se deben validar los campos de datos en los formularios de datos para garantizar la consistencia de la información.
 
 ## LINK PASO A PASO DE CREACIÓN DE PROYECTO
+PASO A PASO [LINK :accessibility: 🤟](https://github.com/RinoxCraft/Projects-Unicauca/blob/d140c63184b31830f3fca3d70487f63f5d5123e2/MiniProyecto%20React/ProyectCreation.md)
 
 
 
