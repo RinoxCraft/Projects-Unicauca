@@ -65,14 +65,15 @@ Vamos paso a paso desde la creación de la carpeta. Asumiré que tienes Visual S
 ### Arbol del Proyecto
 <p align="center"><img width="260" height="246" src="https://github.com/RinoxCraft/Projects-Unicauca/assets/67917424/ac64ebb5-7dbf-4965-9a3c-db32291008f0"> </p>
 
-
-
-
 4. Ejecutar el Proyecto
-   - Inicia el proyecto con Expo: ```expo start```
+<p align="center"><img width="1099" height="313" src="https://github.com/RinoxCraft/Projects-Unicauca/assets/67917424/4a8ca0fa-0c52-4f40-bbc4-7f97fbf34835"> </p>
+   - Inicia el proyecto : ```npm start```
+
 > [!TIP]
 > Esto abrirá una nueva ventana en tu navegador con la interfaz de Expo. Desde aquí, puedes escanear el código QR con la aplicación Expo Go en tu dispositivo móvil (disponible en la App Store y Google Play) para ver tu aplicación en tiempo real.
 
+>[!IMPORTANT]
+>Es recomendable para el proyecto instalar las siguientes dependencias ```npm install @react-navigation/native @react-navigation/native-stack expo-secure-store expo-sqlite react-native-animatable```
 5. Abrir el Proyecto en VS Code
    - En Visual Studio Code, selecciona File > Open Folder....
    - Navega a la carpeta ListaCompras dentro de "Micro Proyecto React" y ábrela.
