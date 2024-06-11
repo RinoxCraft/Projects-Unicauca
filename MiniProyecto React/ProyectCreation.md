@@ -67,7 +67,7 @@ Vamos paso a paso desde la creación de la carpeta. Asumiré que tienes Visual S
 
 4. Ejecutar el Proyecto
 <p align="center"><img width="1099" height="313" src="https://github.com/RinoxCraft/Projects-Unicauca/assets/67917424/4a8ca0fa-0c52-4f40-bbc4-7f97fbf34835"> </p>
-   - Inicia el proyecto : ```npm start```
+   - Inicia el proyecto : ``` npm start ```
 
 > [!TIP]
 > Esto abrirá una nueva ventana en tu navegador con la interfaz de Expo. Desde aquí, puedes escanear el código QR con la aplicación Expo Go en tu dispositivo móvil (disponible en la App Store y Google Play) para ver tu aplicación en tiempo real.
