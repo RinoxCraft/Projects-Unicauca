@@ -20,16 +20,53 @@ Vamos paso a paso desde la creación de la carpeta. Asumiré que tienes Visual S
       - Abre una terminal en VS Code
            - Selecciona Terminal > New Terminal desde el menú superior.
            - Ejecuta el siguiente comando en la terminal para instalar Expo CLI: ``` npm install -g expo-cli ```
-3. Crear un Nuevo Proyecto con Expo
+
    - En la terminal de VS Code, navega a la carpeta "Micro Proyecto React" (si no estás ya ahí):
      ``` cd path/to/your/folder/Micro Proyecto React ```
 > [!NOTE]
 > Reemplaza path/to/your/folder con la ruta real de la carpeta.
-   - Crea un nuevo proyecto con Expo usando el siguiente comando: ```expo init ListaCompras```
+   - Crea un nuevo proyecto  usando el siguiente comando: ``` npx create-expo-app MyProject ```
    - Selecciona una plantilla (elige "blank" para empezar desde cero):
 > [!NOTE]
 > Usa las teclas de flecha para navegar y presiona Enter para seleccionar.
-   - Navega a la carpeta del proyecto recién creado: ```cd ListaCompras ```
+   - Navega a la carpeta del proyecto recién creado: ```cd MyProyect ```
+   - Configuramos nuestro JSON.JS de la siguiente forma:
+```{
+  "name": "micro-proyecto-react",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "expo": "~49.0.7",
+    "expo-secure-store": "~13.0.3",
+    "expo-sqlite": "~12.0.3",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-native": "0.72.3",
+    "react-native-animatable": "^1.3.3",
+    "react-native-safe-area-context": "4.7.4",
+    "react-native-screens": "~3.29.0",
+    "@react-navigation/native": "^6.1.6",
+    "@react-navigation/native-stack": "^6.10.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.22.0",
+    "@types/react": "^18.2.20",
+    "@types/react-native": "^0.72.0"
+  }
+}
+```
+
+### Arbol del Proyecto
+<p align="center"><img width="260" height="246" src="https://github.com/RinoxCraft/Projects-Unicauca/assets/67917424/ac64ebb5-7dbf-4965-9a3c-db32291008f0"> </p>
+
+
+
 
 4. Ejecutar el Proyecto
    - Inicia el proyecto con Expo: ```expo start```
